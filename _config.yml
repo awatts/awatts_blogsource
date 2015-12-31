@@ -1,0 +1,58 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: Andrew Watts's Blog
+subtitle: Name TBA
+email: andrew.l.watts@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  Andrew Watts's blog for his work and hobbies, especially learning to play music
+  (guitar, bass guitar, and cello primarily), music theory, programming, and running.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://awatts.us" # the base hostname & protocol for your site
+timezone: America/New_York
+twitter_username: awatts_
+github_username:  awatts
+
+# Octopress Social
+gplus:
+  id: 117216595517667931046
+
+twitter:
+  username: awatts_
+
+github:
+  username: awatts
+
+facebook:
+  profile_id: 12416354
+
+# Build settings
+markdown: redcarpet
+#markdown: kramdown
+#highlighter: rouge
+
+exclude: [_deploy.yml]
+
+redcarpet:
+  extensions:
+    - tables
+    - autolink
+    - strikethrough
+    - space_after_headers
+    - with_toc_data
+    - fenced_code_blocks
+    - footnotes
+
+gems:
+  - octopress-genesis-theme
+  - octopress-codefence
+  - octopress-code-highlighter
+  - octopress-minify-html
+  - octopress-social
+  - octopress-feeds
+  - octopress-solarized
