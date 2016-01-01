@@ -1,5 +1,6 @@
 ---
 layout: post
+author: Andrew Watts
 title: "Starting From Scratch With Octopress 3.0"
 date: 2015-12-31T13:53:20-05:00
 ---
