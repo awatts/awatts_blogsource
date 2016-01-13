@@ -31,6 +31,9 @@ github:
 facebook:
   profile_id: 12416354
 
+disqus:
+  shortname: awatts
+
 # Build settings
 markdown: redcarpet
 #markdown: kramdown
