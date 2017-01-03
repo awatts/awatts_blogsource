@@ -5,9 +5,18 @@
 
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.1/pure-min.css" integrity="sha256-38M7q5qojYnNeMJh+sMEDVvJ27EW2sKa/0zR0bFo0Ns=" crossorigin="anonymous" />
+  <!--[if lte IE 8]>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.1/grids-responsive-old-ie.css" integrity="sha256-RcdV8MjAwcY3WRYBTG6ldr3EBpAvRT6fdubDo1yXy+c=" crossorigin="anonymous" />
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.1/grids-responsive.css" integrity="sha256-Djf5sTLNCLttmozf6mEdDB0EH4s7/t8nm4mseCrT3xM=" crossorigin="anonymous" />
+  <!--<![endif]-->
   <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
-  {% css_asset_tag %}
+  <link rel="stylesheet" href="{{ "/css/blog.css" | prepend: site.baseurl }}">
+  {% comment %}{% css_asset_tag %}{% endcomment %}
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+  {% seo %}
 </head>

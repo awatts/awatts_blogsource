@@ -2,22 +2,61 @@
 layout: default
 ---
 
-<div class="home">
+<h1 class="page-heading">Posts</h1>
+<ul class="post-list">
+{% comment %}
+  <section class="post">
+      <header class="post-header">
+          <img class="post-avatar" alt="Eric Ferraiuolo&#x27;s avatar" height="48" width="48" src="img/common/ericf-avatar.png">
 
-  <h1 class="page-heading">Posts</h1>
+          <h2 class="post-title">Everything You Need to Know About Grunt</h2>
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+          <p class="post-meta">
+              By <a class="post-author" href="#">Eric Ferraiuolo</a> under <a class="post-category post-category-js" href="#">JavaScript</a>
+          </p>
+      </header>
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
+      <div class="post-description">
+          <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          </p>
+      </div>
+  </section>
+{% endcomment %}
+  {% for post in paginator.posts %}
+  <section class="post">
+    <header class="post-header">
+      <h2 class="post-title">{{ post.title }}</h2>
+      <p class="post-meta">By {{post.author}} {% unless post.categories == nil %}in {{post.categories| array_to_sentence_string}}{% endunless %} on {{ post.date | date: "%b %-d, %Y" }}</p>
+    </header>
+    <div class="post-description">
+    <p>{{post.excerpt}}</p>
+    <a href="{{ post.url | prepend: site.baseurl }}">Read more &raquo;</a>
+    </div>
+  </section>
+  {% endfor %}
+</ul>
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+{% if paginator.total_pages > 1 %}
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+  {% endif %}
 
+  {% for page in (1..paginator.total_pages) %}
+    {% if page == paginator.page %}
+      <em>{{ page }}</em>
+    {% elsif page == 1 %}
+      <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+    {% else %}
+      <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+    {% endif %}
+  {% endfor %}
+
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+  {% endif %}
 </div>
+{% endif %}
+
+<p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>

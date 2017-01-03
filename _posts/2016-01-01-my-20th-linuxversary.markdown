@@ -3,6 +3,7 @@ layout: post
 author: Andrew Watts
 title: "My 20th Linuxversary"
 date: 2016-01-01T15:37:14-05:00
+tags: [linux, ]
 ---
 
 I can't remember the exact date that I started using Linux, but it's been 20 years
